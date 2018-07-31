@@ -20,5 +20,5 @@ this tab completion script using the VKE cli help output.
 You may have use for some other VKE projects:
 * [Install VKE cli using homebrew](https://github.com/ali5ter/homebrew-vke-cli)
 * [Scripts used with VKE](https://github.com/ali5ter/vmware_scripts/tree/master/vke)
-* [A bash VKE prompt]()
-* [Extended VKE cli functionality]()
+* [A bash VKE prompt](https://github.com/ali5ter/vke-prompt)
+* [Extended VKE cli functionality](https://github.com/ali5ter/vke-cli-extended)
