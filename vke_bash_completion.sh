@@ -20,11 +20,11 @@ _vke_complete () {
         cluster)    cmds="templates versions create show show-health list rename delete upgrade maintain get-kubectl-auth merge-kubectl-auth iam namespace peering --help";;
         export)    cmds="--output --output --output --folder --output --folder --project";;
         show-health)    cmds="--folder --project";;
-        merge-kubectl-auth)    cmds="--folder --project";;
+        merge-kubectl-auth)    cmds="--embed-ca --folder --project";;
         iam)    cmds="show export import add remove --help role user group --help show export import add remove --help show export import add remove --help show export import add remove --help show export import add remove --help";;
         upgrade)    cmds="--version --folder --project";;
         group)    cmds="create delete show list member --help";;
-        create)    cmds="--description --display-name --display-name --folder --name --service-level --display-name --cluster-network --pod-network --service-network --region --version --template --folder --project --folder --project --cluster-name --name --customer-account-id --customer-network-id --customer-network-cidr --customer-network-region --folder --project";;
+        create)    cmds="--description --display-name --display-name --folder --name --service-level --display-name --cluster-network --pod-network --service-network --region --version --template --privilegedMode --force --folder --project --folder --project --cluster-name --name --customer-account-id --customer-network-id --customer-network-cidr --customer-network-region --folder --project";;
         peering)    cmds="create delete rename show list --help";;
         namespace)    cmds="create delete show list iam --help";;
         member)    cmds="add remove list --help";;
