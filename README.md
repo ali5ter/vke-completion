@@ -13,7 +13,7 @@ If you're using zsh, the following should allow this autocompletion to work:
     $ source vke_bash_completion.sh
 
 ## Generation
-The [create_completion](create_completion) script uses [cli_taxo]() to generate
+The [create_completion](create_completion) script uses [cli_taxo](https://github.com/ali5ter/cli_taxo) to generate
 this tab completion script using the VKE cli help output.
 
 ## Other VKE utilities
