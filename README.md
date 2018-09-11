@@ -1,6 +1,8 @@
 # vke-completion
 [vke_bash_completion.sh](vke_bash_completion.sh) provides bash tab completion
-for the VMware Kubernetes Engine cli. 
+for the VMware Kubernetes Engine cli.
+
+[![CircleCI](https://circleci.com/gh/ali5ter/vke-completion.svg?style=svg)](https://circleci.com/gh/ali5ter/vke-completion)
 
 ## Usage
 Source this from your `.bash_profile` or, to use in your current shell, run 
