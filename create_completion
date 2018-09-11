@@ -52,7 +52,6 @@ generate_autocomplete_script() {
 cd /tmp
 install_vke_cli
 install_cli_taxo
-alias vke="./vke"
-vke
+./vke
 generate_autocomplete_script
 cd "$PWD"
