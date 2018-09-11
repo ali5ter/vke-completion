@@ -17,7 +17,7 @@ jobs:
       - checkout
       - run:
           name: Create completion script
-          command: create_completion
+          command: ./create_completion
 
 workflows:
   version: 2
