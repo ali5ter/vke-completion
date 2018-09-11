@@ -15,7 +15,7 @@ cd cli_taxo
 curl -O https://raw.githubusercontent.com/ali5ter/cli_taxo/master/cli_taxo.py
 curl -O https://raw.githubusercontent.com/ali5ter/cli_taxo/master/bash_completion.tmpl
 curl -O https://raw.githubusercontent.com/ali5ter/cli_taxo/master/requirements.txt
-pip install -r requirements.txt
+pip install --user -r requirements.txt
 chmod 755 cli_taxo.py
 
 ## generate bash completion script and move into place
