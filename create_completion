@@ -8,22 +8,50 @@ set -eou pipefail
 
 DIR="$PWD"
 
-## set up cli_taxo
+vke_cli_url() {
+    case "$OSTYPE" in
+        ## Pulled from `curl https://api.vke.cloud.vmware.com/v1/cli | jq .latest``
+        darwin*)  echo 'https://s3-us-west-2.amazonaws.com/cascade-cli-download/pre-prod-us-west-2/latest/mac/vke' ;; 
+        linux*)   echo 'https://s3-us-west-2.amazonaws.com/cascade-cli-download/pre-prod-us-west-2/latest/linux64/vke' ;;
+        msys*)    echo 'https://s3-us-west-2.amazonaws.com/cascade-cli-download/pre-prod-us-west-2/latest/windows64/vke.exe' ;;
+        *)        return 1;;
+    esac
+    return 0
+}
+
+install_vke_cli() {
+    echo
+    echo "Installing vke CLI... "
+    curl "$(vke_cli_url)" > ./vke && chmod 755 ./vke
+    return 0
+}
+
+install_cli_taxo() {
+    echo
+    echo "Installing cli_taxo... "
+    curl -O https://raw.githubusercontent.com/ali5ter/cli_taxo/master/cli_taxo.py
+    curl -O https://raw.githubusercontent.com/ali5ter/cli_taxo/master/bash_completion.tmpl
+    curl -O https://raw.githubusercontent.com/ali5ter/cli_taxo/master/requirements.txt
+    pip install --user -r requirements.txt
+    chmod 755 cli_taxo.py
+    return 0
+}
+
+generate_autocomplete_script() {
+    echo
+    echo "Generating autocomplete script... "
+    ./cli_taxo.py vke \
+        --commands-token '^COMMANDS:$' \
+        --commands-filter '^\s\s\s\s\s(?!-)(\S[^,\s]+)' \
+        --options-token 'OPTIONS:$' \
+        --options-filter '^\s\s\s(-\S[^,\s]+)|\s(-\S[^,\s]+)\s\s' \
+        -o bash -O > "$DIR/vke_bash_completion.sh"
+    return 0
+}
+
 cd /tmp
-mkdir -p cli_taxo
-cd cli_taxo
-curl -O https://raw.githubusercontent.com/ali5ter/cli_taxo/master/cli_taxo.py
-curl -O https://raw.githubusercontent.com/ali5ter/cli_taxo/master/bash_completion.tmpl
-curl -O https://raw.githubusercontent.com/ali5ter/cli_taxo/master/requirements.txt
-pip install --user -r requirements.txt
-chmod 755 cli_taxo.py
-
-## generate bash completion script and move into place
-./cli_taxo.py vke \
-    --commands-token '^COMMANDS:$' \
-    --commands-filter '^\s\s\s\s\s(?!-)(\S[^,\s]+)' \
-    --options-token 'OPTIONS:$' \
-    --options-filter '^\s\s\s(-\S[^,\s]+)|\s(-\S[^,\s]+)\s\s' \
-    -o bash -O > "$DIR/vke_bash_completion.sh"
-
+install_vke_cli
+install_cli_taxo
+alias vke="./vke"
+generate_autocomplete_script
 cd "$PWD"
