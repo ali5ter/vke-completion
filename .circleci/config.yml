@@ -9,7 +9,7 @@ jobs:
           name: Check Scripts
           command: |
             shellcheck --external-sources create_completion
-            shellcheck --external-sources vke_bash_completion
+            shellcheck --external-sources vke_bash_completion.sh
   build-job:
     docker:
       - image: debian:stretch
