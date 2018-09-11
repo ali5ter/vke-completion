@@ -9,7 +9,7 @@ set -eou pipefail
 DIR="$PWD"
 
 ## set up cli_taxo
-cd ~/tmp
+cd /tmp
 mkdir -p cli_taxo
 cd cli_taxo
 curl -O https://raw.githubusercontent.com/ali5ter/cli_taxo/master/cli_taxo.py
