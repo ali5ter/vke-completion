@@ -17,7 +17,7 @@ _vke_complete () {
                 rename)    cmds="--folder --project --folder --project";;
         set)    cmds="--folder";;
         show)    cmds="--folder --folder --perf --folder --project --folder --project --folder --project --folder --project";;
-        cluster)    cmds="templates versions create show show-health list rename delete upgrade maintain get-kubectl-auth merge-kubectl-auth iam namespace peering --help";;
+        cluster)    cmds="templates versions create show show-health list rename delete upgrade maintain get-kubectl-auth merge-kubectl-auth auth iam namespace peering --help";;
         export)    cmds="--output --output --output --folder --output --folder --project";;
         show-health)    cmds="--folder --project";;
         merge-kubectl-auth)    cmds="--embed-ca --folder --project";;
@@ -34,6 +34,7 @@ _vke_complete () {
         folder)    cmds="create delete show get set unset list iam --help";;
         vke)    cmds="account organization info iam folder project cluster documentation help --non-interactive --log-file --output --detail --help --version";;
         templates)    cmds="list --help";;
+        auth)    cmds="setup delete --help";;
         user)    cmds="show list --help";;
         info)    cmds="region --help";;
         account)    cmds="show login --help";;
@@ -46,8 +47,9 @@ _vke_complete () {
         maintain)    cmds="--folder --project";;
         organization)    cmds="show iam --help";;
         login)    cmds="--organization --refresh-token";;
-        delete)    cmds="--folder --folder --project --folder --project --folder --project";;
-        *)    cmds="rename set show cluster export show-health merge-kubectl-auth iam upgrade group create peering namespace member add role import folder vke templates user info account get-kubectl-auth versions region list remove project maintain organization login delete";;
+        setup)    cmds="--embed-ca --folder --project";;
+        delete)    cmds="--folder --folder --project --folder --project --folder --project --folder --project";;
+        *)    cmds="rename set show cluster export show-health merge-kubectl-auth iam upgrade group create peering namespace member add role import folder vke templates auth user info account get-kubectl-auth versions region list remove project maintain organization login setup delete";;
     esac
 
     COMPREPLY=( $(compgen -W "$cmds" -- "$cur") )
