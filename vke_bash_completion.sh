@@ -17,12 +17,10 @@ _vke_complete () {
                 rename)    cmds="--folder --project --folder --project";;
         set)    cmds="--folder";;
         show)    cmds="--folder --folder --perf --folder --project --folder --project --folder --project --folder --project";;
-        cluster)    cmds="versions create show show-health list rename delete upgrade maintain recover list-snapshots get-kubectl-auth merge-kubectl-auth auth iam namespace peering --help";;
+        cluster)    cmds="versions create show show-health list rename delete upgrade maintain get-kubectl-auth merge-kubectl-auth auth iam namespace peering --help";;
         export)    cmds="--output --output --output --folder --output --folder --project";;
         show-health)    cmds="--folder --project";;
         merge-kubectl-auth)    cmds="--embed-ca --folder --project";;
-        list-snapshots)    cmds="--folder --project";;
-        recover)    cmds="--force --snapshot --folder --project";;
         iam)    cmds="show export import add remove --help role user group --help show export import add remove --help show export import add remove --help show export import add remove --help show export import add remove --help";;
         upgrade)    cmds="--version --folder --project";;
         group)    cmds="create delete show list member --help";;
@@ -50,7 +48,7 @@ _vke_complete () {
         login)    cmds="--organization --refresh-token";;
         setup)    cmds="--embed-ca --folder --project";;
         delete)    cmds="--folder --folder --project --folder --project --folder --project --folder --project";;
-        *)    cmds="rename set show cluster export show-health merge-kubectl-auth list-snapshots recover iam upgrade group create peering namespace member add role import folder vke auth user info account get-kubectl-auth versions region list remove project maintain organization login setup delete";;
+        *)    cmds="rename set show cluster export show-health merge-kubectl-auth iam upgrade group create peering namespace member add role import folder vke auth user info account get-kubectl-auth versions region list remove project maintain organization login setup delete";;
     esac
 
     COMPREPLY=( $(compgen -W "$cmds" -- "$cur") )
