@@ -16,23 +16,26 @@ _vke_complete () {
     case "$prev" in
                 rename)    cmds="--folder --project --folder --project";;
         set)    cmds="--folder";;
-        show)    cmds="--folder --folder --perf --folder --project --folder --project --folder --project --folder --project";;
-        cluster)    cmds="versions create show show-health list rename delete upgrade maintain get-kubectl-auth merge-kubectl-auth auth iam namespace peering --help";;
+        show)    cmds="--folder --folder --perf --folder --project --folder --project --folder --project --folder --project --folder --project";;
+        vm)    cmds="list --help";;
+        cluster)    cmds="versions create show show-health list rename delete upgrade maintain get-kubectl-auth merge-kubectl-auth auth iam vm namespace peering ip-whitelist --help";;
         export)    cmds="--output --output --output --folder --output --folder --project";;
         show-health)    cmds="--folder --project";;
         merge-kubectl-auth)    cmds="--embed-ca --folder --project";;
         iam)    cmds="show export import add remove --help role user group --help show export import add remove --help show export import add remove --help show export import add remove --help show export import add remove --help";;
         upgrade)    cmds="--version --folder --project";;
         group)    cmds="create delete show list member --help";;
-        create)    cmds="--description --display-name --display-name --folder --name --cluster-type --display-name --cluster-network --pod-network --service-network --region --version --privilegedMode --force --folder --project --folder --project --cluster-name --name --customer-account-id --customer-network-id --customer-network-cidr --customer-network-region --folder --project";;
+        create)    cmds="--description --display-name --display-name --folder --name --cluster-type --display-name --cluster-network --pod-network --service-network --region --version --privilegedMode --force --ip-whitelist --folder --project --folder --project --cluster-name --name --customer-account-id --customer-network-id --customer-network-cidr --customer-network-region --folder --project --folder --project";;
         peering)    cmds="create delete rename show list --help";;
         namespace)    cmds="create delete show list iam --help";;
         member)    cmds="add remove list --help";;
-        add)    cmds="--subject --role --subject --role --subject --role --folder --subject --role --folder --project";;
+        add)    cmds="--subject --role --subject --role --subject --role --folder --subject --role --folder --project --folder --project";;
+        ip-whitelist)    cmds="create delete show update add remove --help";;
         role)    cmds="list --help";;
         import)    cmds="--input --input --input --folder --input --folder --project";;
         folder)    cmds="create delete show get set unset list iam --help";;
         vke)    cmds="account organization info iam folder project cluster help --log-file --output --detail --help --version";;
+        update)    cmds="--folder --project";;
         auth)    cmds="setup delete --help";;
         user)    cmds="show list --help";;
         info)    cmds="region --help";;
@@ -40,15 +43,15 @@ _vke_complete () {
         get-kubectl-auth)    cmds="--configfile --folder --project";;
         versions)    cmds="list --help";;
         region)    cmds="list --help";;
-        list)    cmds="--folder --region --folder --project --folder --project --folder --project";;
-        remove)    cmds="--subject --role --subject --role --subject --role --folder --subject --role --folder --project";;
+        list)    cmds="--folder --region --folder --project --folder --project --folder --project --folder --project";;
+        remove)    cmds="--subject --role --subject --role --subject --role --folder --subject --role --folder --project --folder --project";;
         project)    cmds="create delete show get set unset list iam --help";;
         maintain)    cmds="--folder --project";;
         organization)    cmds="show iam --help";;
         login)    cmds="--organization --refresh-token";;
         setup)    cmds="--embed-ca --folder --project";;
-        delete)    cmds="--folder --folder --project --folder --project --folder --project --folder --project";;
-        *)    cmds="rename set show cluster export show-health merge-kubectl-auth iam upgrade group create peering namespace member add role import folder vke auth user info account get-kubectl-auth versions region list remove project maintain organization login setup delete";;
+        delete)    cmds="--folder --folder --project --folder --project --folder --project --folder --project --folder --project";;
+        *)    cmds="rename set show vm cluster export show-health merge-kubectl-auth iam upgrade group create peering namespace member add ip-whitelist role import folder vke update auth user info account get-kubectl-auth versions region list remove project maintain organization login setup delete";;
     esac
 
     COMPREPLY=( $(compgen -W "$cmds" -- "$cur") )
