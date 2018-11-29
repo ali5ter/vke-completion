@@ -20,7 +20,7 @@ this tab completion script using the Cloud PKS CLI help output.
 
 ## Other Cloud PKS utilities
 You may have use for some other Cloud PKS projects:
-* [Install Cloud PKS cli using homebrew](https://github.com/ali5ter/homebrew-vke-cli)
+* [Install Cloud PKS CLI using homebrew](https://github.com/ali5ter/homebrew-vke-cli)
 * [Scripts used with Cloud PKS](https://github.com/ali5ter/vmware_scripts/tree/master/vke)
 * [A bash Cloud PKS prompt](https://github.com/ali5ter/vke-prompt)
 * [Extended Cloud PKS CLI functionality](https://github.com/ali5ter/vke-cli-extended)
