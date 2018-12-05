@@ -11,6 +11,7 @@ jobs:
           command: |
             shellcheck --external-sources create_completion
             shellcheck --external-sources vke_bash_completion.sh
+            shellcheck --external-sources create_taxo_graph
 
   build_and_source_completion:
     docker:
