@@ -20,7 +20,7 @@ to generate this tab completion script using the Cloud PKS CLI help output.
 
 ## CLI Taxonomy Diagram
 The [create_taxo_graph](create_taxo_graph) script uses [cli_taxo](https://github.com/ali5ter/cli_taxo)
-to generate a radaial diagram illustrating the taxonomy of the VMware
+to generate a radial diagram illustrating the taxonomy of the VMware
 Cloud PKS CLI as an SVG embedded in a webpage under [taxonomy](taxonomy).
 
 You can view this by running locally as a container like this:
