@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# @file create_completion
+# @file create_taxo_graph
 # Create a bash completion script for vke using cli_taxo
 # @author Alister Lewis-Bowen <alister@lewis-bowen.org>
 
@@ -37,15 +37,29 @@ install_cli_taxo() {
     return 0
 }
 
-generate_autocomplete_script() {
+generate_taxo_graph() {
     echo
-    echo "Generating autocomplete script... "
+    echo "Generating csv of taxonomy... "
     ./cli_taxo.py vke \
         --commands-token '^COMMANDS:$' \
         --commands-filter '^\s\s\s\s\s(?!-)(\S[^,\s]+)' \
         --options-token 'OPTIONS:$' \
         --options-filter '^\s\s\s(-\S[^,\s]+)|\s(-\S[^,\s]+)\s\s' \
-        -o bash -O > "$DIR/vke_bash_completion.sh"
+        -o csv -O > data.csv
+
+    echo "Creating svg diagram of taxo data... "
+    curl -O https://raw.githubusercontent.com/ali5ter/cli_taxo/master/exp3/radial_tidy_tree_tmpl.html
+    mkdir -p "$DIR/taxonomy"
+    data="$DIR/taxonomy/data.csv"
+    html="$DIR/taxonomy/index.html"
+    # shellcheck disable=SC2002
+    # shellcheck disable=SC1004
+    cat data.csv | sed 's/,/./g' | sed 's/$/,/' | sed '1i\
+id,value\
+' > "$data"
+    # shellcheck disable=SC2002
+    # shellcheck disable=SC2086
+    cat radial_tidy_tree_tmpl.html | sed "s/##FILE##/$(basename $data)/g" > "$html"
     return 0
 }
 
@@ -53,5 +67,5 @@ cd /tmp || exit 1
 install_vke_cli
 install_cli_taxo
 export PATH="$PATH:."
-generate_autocomplete_script
+generate_taxo_graph
 cd "$PWD" || exit 1

@@ -15,8 +15,19 @@ If you're using zsh, the following should allow this autocompletion to work:
     $ source vke_bash_completion.sh
 
 ## Generation
-The [create_completion](create_completion) script uses [cli_taxo](https://github.com/ali5ter/cli_taxo) to generate
-this tab completion script using the Cloud PKS CLI help output.
+The [create_completion](create_completion) script uses [cli_taxo](https://github.com/ali5ter/cli_taxo)
+to generate this tab completion script using the Cloud PKS CLI help output.
+
+## CLI Taxonomy Diagram
+The [create_taxo_graph](create_taxo_graph) script uses [cli_taxo](https://github.com/ali5ter/cli_taxo)
+to generate a radaial diagram illustrating the taxonomy of the VMware
+Cloud PKS CLI as an SVG embedded in a webpage under [taxonomy](taxonomy).
+
+You can view this by running locally as a container like this:
+1. Build the docker image: <pre>docker build -t ali5ter/vke-cli-taxonomy:1.0 .</pre>
+2. Run the container: <pre>docker run -d -p8080:80 ali5ter/vke-cli-taxonomy:1.0</pre>
+3. Open http://localhost/ and play with the app
+4. Stop and remove the container: <pre>docker rm -f $(docker ps | grep vke-cli-taxonomy | awk '{print $1}')</pre>
 
 ## Other Cloud PKS utilities
 You may have use for some other Cloud PKS projects:
