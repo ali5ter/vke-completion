@@ -26,7 +26,7 @@ Cloud PKS CLI as an SVG embedded in a webpage under [taxonomy](taxonomy).
 You can view this by running locally as a container like this:
 1. Build the docker image: <pre>docker build -t ali5ter/vke-cli-taxonomy:1.0 .</pre>
 2. Run the container: <pre>docker run -d -p8080:80 ali5ter/vke-cli-taxonomy:1.0</pre>
-3. Open http://localhost/ and play with the app
+3. Open http://localhost:8080/ and play with the app
 4. Stop and remove the container: <pre>docker rm -f $(docker ps | grep vke-cli-taxonomy | awk '{print $1}')</pre>
 
 ## Other Cloud PKS utilities
