@@ -1,4 +1,5 @@
 id,value
+
 vke,
 vke.account,
 vke.account.show,
@@ -255,5 +256,6 @@ vke.--interactive,
 vke.--log-file,
 vke.--output,
 vke.--detail,
+vke.--quiet,
 vke.--help,
 vke.--version,
