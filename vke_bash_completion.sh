@@ -33,7 +33,7 @@ _vke_complete () {
         role)    cmds="list --help";;
         import)    cmds="--input --input --input --folder --input --folder --project";;
         folder)    cmds="create delete show get set unset list iam --help";;
-        vke)    cmds="account organization info iam folder project cluster task help --interactive --log-file --output --detail --help --version";;
+        vke)    cmds="account organization info iam folder project cluster task help --interactive --log-file --output --detail --quiet --help --version";;
         update)    cmds="--no-wait --folder --project";;
         auth)    cmds="setup delete --help";;
         user)    cmds="show list --help";;
