@@ -31,9 +31,10 @@ _vke_complete () {
         add)    cmds="--subject --role --subject --role --subject --role --folder --subject --role --folder --project --no-wait --folder --project";;
         ip-whitelist)    cmds="create delete show update add remove --help";;
         role)    cmds="list --help";;
+        provider)    cmds="register --help";;
         import)    cmds="--input --input --input --folder --input --folder --project";;
         folder)    cmds="create delete show get set unset list iam --help";;
-        vke)    cmds="account organization info iam folder project cluster task help --interactive --log-file --output --detail --quiet --help --version";;
+        vke)    cmds="account organization info iam folder project cluster task provider help --interactive --log-file --output --detail --quiet --help --version";;
         update)    cmds="--no-wait --folder --project";;
         auth)    cmds="setup delete --help";;
         user)    cmds="show list --help";;
@@ -43,6 +44,7 @@ _vke_complete () {
         get-kubectl-auth)    cmds="--configfile --folder --project";;
         versions)    cmds="list --help";;
         region)    cmds="list --help";;
+        register)    cmds="--type --provider-id --assume-role-arn";;
         list)    cmds="--folder --region --folder --project --folder --project";;
         remove)    cmds="--subject --role --subject --role --subject --role --folder --subject --role --folder --project --folder --project";;
         project)    cmds="create delete show get set unset list iam --help";;
@@ -52,7 +54,7 @@ _vke_complete () {
         login)    cmds="--organization --refresh-token";;
         setup)    cmds="--embed-ca --folder --project";;
         delete)    cmds="--folder --folder --project --no-wait --folder --project --folder --project --no-wait --folder --project";;
-        *)    cmds="rename set show cluster export show-health merge-kubectl-auth iam upgrade group aws-peering create namespace member add ip-whitelist role import folder vke update auth user info account task get-kubectl-auth versions region list remove project connection maintain organization login setup delete";;
+        *)    cmds="rename set show cluster export show-health merge-kubectl-auth iam upgrade group aws-peering create namespace member add ip-whitelist role provider import folder vke update auth user info account task get-kubectl-auth versions region register list remove project connection maintain organization login setup delete";;
     esac
 
     COMPREPLY=( $(compgen -W "$cmds" -- "$cur") )
