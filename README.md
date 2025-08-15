@@ -1,3 +1,5 @@
+> **⚠️ This project is archived and no longer maintained.**
+
 # vke-completion
 [vke_bash_completion.sh](vke_bash_completion.sh) provides bash tab completion
 for the VMware Cloud PKS (formerly VKE) CLI.
